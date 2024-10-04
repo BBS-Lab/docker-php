@@ -33,6 +33,7 @@ if [ $# -eq 0 ]; then
         8.0
         8.1
         8.2
+        8.3
     )
 else
     phpVersions=$1
@@ -48,6 +49,8 @@ function build (){
         # Use "docker build"
 
         docker buildx build \
+            --pull \
+            --no-cache \
             --build-arg PHP_VERSION="${1}" \
             --push \
             --platform linux/amd64,linux/arm/v7,linux/arm64/v8 \

@@ -1,6 +1,6 @@
 # docker-php
 
-PHP docker image based on php:apache-bullseye.
+PHP docker image based on php:apache.
 
 ## Basic usage
 

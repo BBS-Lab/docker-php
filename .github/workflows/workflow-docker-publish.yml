@@ -11,6 +11,7 @@ jobs:
           - "8.0"
           - "8.1"
           - "8.2"
+          - "8.3"
     steps:
       - name: Get branch name
         id: branch-name
@@ -44,4 +45,4 @@ jobs:
             linux/arm64/v8
           pull: true
           push: true
-          tags: bigbossstudio/php:${{ matrix.php-version }}-apache
+          tags: bigbossstudio/php:${{ matrix.php-version }}-apache,bigbossstudio/php:${{ matrix.php-version }}-apache-${{ github.sha }}
