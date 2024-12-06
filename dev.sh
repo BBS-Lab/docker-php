@@ -34,6 +34,7 @@ if [ $# -eq 0 ]; then
         8.1
         8.2
         8.3
+        8.4
     )
 else
     phpVersions=$1
