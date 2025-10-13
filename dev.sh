@@ -50,6 +50,7 @@ function build (){
         # Use "docker build"
 
         docker buildx build \
+            --builder mybuilder \
             --pull \
             --no-cache \
             --build-arg PHP_VERSION="${1}" \

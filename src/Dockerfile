@@ -12,27 +12,27 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        git curl wget gnupg2 zip unzip rsync ca-certificates vim htop cron sudo software-properties-common \
-        # gd
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libpng-dev \
-        # intl
-        libicu-dev \
-        # postgresql
-        libpq-dev \
-        # soap
-        libxml2-dev \
-        # zip
-        libzip-dev \
-        # mongodb
-        libssl-dev
+    git curl wget gnupg2 zip unzip rsync ca-certificates vim htop cron sudo \
+    # gd
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    # intl
+    libicu-dev \
+    # postgresql
+    libpq-dev \
+    # soap
+    libxml2-dev \
+    # zip
+    libzip-dev \
+    # mongodb
+    libssl-dev
 
 RUN if [ "$PHP_VERSION" = "7.4" ]; then \
     apt-get install -y --no-install-recommends libkrb5-3=1.18.3-6+deb11u5 tar=1.34+dfsg-1+deb11u1; \
-elif [ "$PHP_VERSION" = "8.0" ]; then \
+    elif [ "$PHP_VERSION" = "8.0" ]; then \
     apt-get install -y --no-install-recommends libgssapi-krb5-2=1.18.3-6+deb11u5 tar=1.34+dfsg-1+deb11u1; \
-fi
+    fi
 
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
