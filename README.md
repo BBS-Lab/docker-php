@@ -5,7 +5,7 @@ PHP docker image based on php:apache.
 ## Basic usage
 
 ```dockerfile
-ARG PHP_VERSION=8.1
+ARG PHP_VERSION=8.3
 
 FROM bigbossstudio/php:${PHP_VERSION}-apache as base
 
@@ -35,7 +35,7 @@ error_log = ${APACHE_LOG_DIR}/error.log
 upload_max_filesize = 16M
 post_max_size = 16M
 date.timezone = Europe/Paris
-export_php = Off
+expose_php = Off
 ```
 
 ## Available PHP modules
@@ -88,8 +88,8 @@ export_php = Off
 ## Install Nodejs
 
 ```dockerfile
-ARG NODE_VERSION=19
-ARG PHP_VERSION=8.1
+ARG NODE_VERSION=22
+ARG PHP_VERSION=8.3
 
 FROM bigbossstudio/php:${PHP_VERSION}-apache
 
@@ -106,7 +106,7 @@ RUN apt-get clean \
 ## Install Puppeteer & Chromium
 
 ```dockerfile
-ARG PHP_VERSION=8.1
+ARG PHP_VERSION=8.3
 
 FROM bigbossstudio/php:${PHP_VERSION}-apache
 

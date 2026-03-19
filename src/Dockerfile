@@ -1,4 +1,4 @@
-ARG PHP_VERSION='8.1'
+ARG PHP_VERSION='8.3'
 
 FROM php:${PHP_VERSION}-apache
 
@@ -27,12 +27,6 @@ RUN apt-get update \
     libzip-dev \
     # mongodb
     libssl-dev
-
-RUN if [ "$PHP_VERSION" = "7.4" ]; then \
-    apt-get install -y --no-install-recommends libkrb5-3=1.18.3-6+deb11u5 tar=1.34+dfsg-1+deb11u1; \
-    elif [ "$PHP_VERSION" = "8.0" ]; then \
-    apt-get install -y --no-install-recommends libgssapi-krb5-2=1.18.3-6+deb11u5 tar=1.34+dfsg-1+deb11u1; \
-    fi
 
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
