@@ -41,8 +41,8 @@ RUN docker-php-ext-install -j$(nproc) bcmath
 RUN docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install -j$(nproc) intl
 
-RUN if [ "$PHP_VERSION" < "8.5" ]; then \
-    docker-php-ext-install -j$(nproc) opcache \
+RUN if [ "$(printf '%s\n' "$PHP_VERSION" "8.5" | sort -V | head -n1)" = "$PHP_VERSION" ] && [ "$PHP_VERSION" != "8.5" ]; then \
+    docker-php-ext-install -j$(nproc) opcache; \
 fi
 
 RUN docker-php-ext-install -j$(nproc) pcntl
