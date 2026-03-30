@@ -29,7 +29,6 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 if [ $# -eq 0 ]; then
     # Set versions
     phpVersions=(
-        8.3
         8.4
         8.5
     )
