@@ -1,0 +1,44 @@
+name: 🐛 Bug Report
+description: Report a reproducible bug in the bigbossstudio/php image.
+labels: ['bug']
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: Minimal steps that trigger the issue (your Dockerfile or docker compose service, the command or request, and the output).
+    validations:
+      required: true
+
+  - type: input
+    id: image-tag
+    attributes:
+      label: Image tag
+      description: e.g. `8.5-apache`, or `8.5-apache-<sha>`
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - linux/amd64
+        - linux/arm64/v8
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+    validations:
+      required: false
