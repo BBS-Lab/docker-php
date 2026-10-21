@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: '0 8 * * 1'
 
+permissions:
+  contents: read
+
 jobs:
   php:
     uses: ./.github/workflows/workflow-docker-publish.yml
@@ -18,14 +21,26 @@ jobs:
     name: Push README to Docker Hub
     steps:
       - name: git checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
         with:
           ref: main
 
       - name: push README to Dockerhub
-        uses: peter-evans/dockerhub-description@v3
+        uses: peter-evans/dockerhub-description@v5
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           repository: bigbossstudio/php
           short-description: ${{ github.event.repository.description }}
+
+  # GitHub disables scheduled workflows after 60 days without commits: re-enabling it on each run resets that delay
+  keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    name: Keep the weekly rebuild enabled
+    permissions:
+      actions: write
+    steps:
+      - run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/docker-publish-production.yml/enable"
+        env:
+          GH_TOKEN: ${{ github.token }}
