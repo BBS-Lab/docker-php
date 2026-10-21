@@ -29,8 +29,10 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 if [ $# -eq 0 ]; then
     # Set versions
     phpVersions=(
-        8.4
         8.5
+        8.4
+        8.3
+        8.2
     )
 else
     phpVersions=$1
@@ -51,7 +53,7 @@ function build (){
             --no-cache \
             --build-arg PHP_VERSION="${1}" \
             --push \
-            --platform linux/amd64,linux/arm/v7,linux/arm64/v8 \
+            --platform linux/amd64,linux/arm64/v8 \
             --tag "bigbossstudio/php:${1}-apache" \
             $SCRIPT_DIR/src/
 
