@@ -2,6 +2,12 @@
 
 All notable changes to `bigbossstudio/php` will be documented in this file.
 
+## 2026-10-29
+
+### 🐛 Bug Fixes
+
+- `FilesMatch "^\."` no longer blocks `/.well-known/*`. The 2026-10-21 hardening already exempted `.well-known` in `DirectoryMatch`, but Apache still matched the `.well-known` path segment as a hidden file and returned 403 before Laravel (or any front controller) could serve OAuth discovery, ACME challenges, or `security.txt`. The FilesMatch now uses `^\.(?!well-known$)`, same exemption as DirectoryMatch.
+
 ## 2026-10-21
 
 ### 💥 Breaking Changes
