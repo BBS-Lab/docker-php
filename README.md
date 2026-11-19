@@ -15,6 +15,7 @@ docker pull bigbossstudio/php:8.5-apache
 |--------------|-----|---------------------------------|
 | `8.5-apache` | 8.5 | `linux/amd64`, `linux/arm64/v8` |
 | `8.4-apache` | 8.4 | `linux/amd64`, `linux/arm64/v8` |
+| `8.3-apache` | 8.3 | `linux/amd64`, `linux/arm64/v8` |
 
 `linux/amd64` covers Intel Macs and x86 Linux servers, `linux/arm64/v8` covers Apple Silicon Macs, AWS Graviton and 64-bit ARM Linux. Docker picks the right one automatically.
 

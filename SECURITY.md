@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Only the tags currently published on [Docker Hub](https://hub.docker.com/r/bigbossstudio/php) (`8.4-apache`, `8.5-apache`) receive security updates. They are rebuilt every Monday on top of the latest official `php` image.
+Only the tags currently published on [Docker Hub](https://hub.docker.com/r/bigbossstudio/php) (`8.3-apache`, `8.4-apache`, `8.5-apache`) receive security updates. They are rebuilt every Monday on top of the latest official `php` image.
 
 ## Reporting a vulnerability
 
