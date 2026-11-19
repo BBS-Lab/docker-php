@@ -2,6 +2,12 @@
 
 All notable changes to `bigbossstudio/php` will be documented in this file.
 
+## 2026-11-19
+
+### ✨ Features
+
+- `8.3-apache` is published again and rebuilt weekly like 8.4 and 8.5. It had been dropped from the build in March and was stuck on PHP 8.3.36, missing the 8.3.37 security release.
+
 ## 2026-10-29
 
 ### 🐛 Bug Fixes
